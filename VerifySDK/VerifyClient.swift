@@ -85,6 +85,14 @@ import UIKit
         sharedInstance.getVerifiedUser(countryCode: countryCode, phoneNumber: phoneNumber, onVerifyInProgress: onVerifyInProgress, onUserVerified: onUserVerified, onError: onError)
     }
     
+    open class func getUniqueIdentifier() -> (String) {
+        let sdk: SDKVerifyService = sharedInstance.verifyService as! SDKVerifyService
+        let deviceProperties = sdk.getDeviceProperties()
+        
+        //return sharedInstance.verifyService.get
+        return deviceProperties.getUniqueDeviceIdentifierAsString()
+    }
+    
     func getVerifiedUser(countryCode: String?, phoneNumber: String,
                                         onVerifyInProgress: @escaping () -> (),
                                         onUserVerified: @escaping () -> (),

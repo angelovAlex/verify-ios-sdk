@@ -33,6 +33,10 @@ class SDKVerifyService : VerifyService {
         self.deviceProperties = SDKDeviceProperties.sharedInstance()
     }
     
+    func getDeviceProperties() -> (DevicePropertyAccessor) {
+        return self.deviceProperties
+    }
+    
     
     /**
         Begin a verification request
